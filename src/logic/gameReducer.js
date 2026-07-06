@@ -123,6 +123,10 @@ export function gameReducer(currentGameState, payload) {
     return {
       ...currentGameState,
       derivedMatrixHistory: currentGameState.derivedMatrixHistory.slice(0, 1),
+      clues: currentGameState.clues.map(clue => ({
+        ...clue,
+        crossedOff: false,
+      })),
     };
   } else {
     console.error(`unhandled action: ${payload.action}`);
